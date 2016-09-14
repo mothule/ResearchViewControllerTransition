@@ -23,7 +23,7 @@ class MyTransitionDelegate : NSObject, UIViewControllerTransitioningDelegate {
 class MyPresentedAnimater : NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
     {
-        return 1.0
+        return 0.3
     }
     // This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
     func animateTransition(transitionContext: UIViewControllerContextTransitioning)
@@ -40,15 +40,14 @@ class MyPresentedAnimater : NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
             toVC.view.alpha = 1.0
             imageView.frame = destImageViewRect
-        }, completion: {_ in transitionContext.completeTransition(true)
-        })
+        }, completion: {_ in transitionContext.completeTransition(true) })
     }
 }
 
 class MyDismissedAnimater : NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval
     {
-        return 1.0
+        return 0.3
     }
     // This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
     func animateTransition(transitionContext: UIViewControllerContextTransitioning)
