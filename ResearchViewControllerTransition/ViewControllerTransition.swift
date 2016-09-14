@@ -29,10 +29,12 @@ class MyPresentedAnimater : NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(transitionContext: UIViewControllerContextTransitioning)
     {
         guard let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else { return }
-//        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else { return }
+//        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else { return }
         guard let container = transitionContext.containerView() else { return }
         container.addSubview(toVC.view)
-        transitionContext.completeTransition(true)
+        
+        toVC.view.alpha = 0.0
+        UIView.animateWithDuration(transitionDuration(transitionContext), animations: { toVC.view.alpha = 1.0 }, completion: {_ in transitionContext.completeTransition(true) })
     }
 }
 
