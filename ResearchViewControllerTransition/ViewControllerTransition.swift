@@ -29,12 +29,19 @@ class MyPresentedAnimater : NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(transitionContext: UIViewControllerContextTransitioning)
     {
         guard let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else { return }
-//        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else { return }
+        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) else { return }
         guard let container = transitionContext.containerView() else { return }
+
+        let imageView = UIImageView(image: UIImage(named: "hoge"))
+        imageView.frame = CGRectZero        
         container.addSubview(toVC.view)
-        
+        container.addSubview(imageView)
         toVC.view.alpha = 0.0
-        UIView.animateWithDuration(transitionDuration(transitionContext), animations: { toVC.view.alpha = 1.0 }, completion: {_ in transitionContext.completeTransition(true) })
+        UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
+            toVC.view.alpha = 1.0
+            imageView.frame = CGRectMake(0, 350, 300, 200)
+        }, completion: {_ in transitionContext.completeTransition(true)
+        })
     }
 }
 
