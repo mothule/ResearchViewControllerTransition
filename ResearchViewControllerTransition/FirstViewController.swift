@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
         presentViewController(vc, animated: true, completion: nil)
     }
     
-    func createImageView() -> UIImageView {
+    func copyImageView() -> UIImageView {
         let image = UIImageView(image: imageView.image)
         image.frame = imageView.frame
         image.contentMode = imageView.contentMode

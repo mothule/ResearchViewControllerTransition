@@ -14,10 +14,8 @@ class SecondViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func createImageView() -> UIImageView{
-        let image = UIImageView(frame: imageView.frame)
-        image.contentMode = imageView.contentMode
-        return image
+    func imageViewRect() -> CGRect{
+        return imageView.frame
     }
     
 }
