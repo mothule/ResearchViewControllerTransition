@@ -33,12 +33,13 @@ class MyPresentedAnimater : NSObject, UIViewControllerAnimatedTransitioning {
         guard let container = transitionContext.containerView() else { return }
 
         let imageView = (fromVC as! FirstViewController).copyImageView()
+        let destImageViewRect = (toVC as! SecondViewController).imageViewRect()
         container.addSubview(toVC.view)
         container.addSubview(imageView)
         toVC.view.alpha = 0.0
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
             toVC.view.alpha = 1.0
-            imageView.frame = CGRectMake(0, 250, 300, 200)
+            imageView.frame = destImageViewRect
         }, completion: {_ in transitionContext.completeTransition(true)
         })
     }
