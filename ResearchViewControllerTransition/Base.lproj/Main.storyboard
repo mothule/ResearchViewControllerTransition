@@ -127,6 +127,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hoge" width="1224" height="1632"/>
+        <image name="hoge" width="1632" height="1224"/>
     </resources>
 </document>
