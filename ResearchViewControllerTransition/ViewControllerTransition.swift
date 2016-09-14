@@ -37,10 +37,11 @@ class MyPresentedAnimater : NSObject, UIViewControllerAnimatedTransitioning {
         container.addSubview(toVC.view)
         container.addSubview(imageView)
         toVC.view.alpha = 0.0
-        UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
-            toVC.view.alpha = 1.0
-            imageView.frame = destImageViewRect
-        }, completion: {_ in transitionContext.completeTransition(true) })
+        UIView.animateWithDuration(transitionDuration(transitionContext), delay: 0.01, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.1, options: [], animations: {
+                        toVC.view.alpha = 1.0
+                        imageView.frame = destImageViewRect
+            }, completion: {_ in transitionContext.completeTransition(true)
+        })
     }
 }
 
